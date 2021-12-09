@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>《HTML入门笔记1》</title>
+    <style>
+        .canter {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p {
+            font-family: 宋体;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="canter">《HTML入门笔记1》</h1>
+    <section>
+        <h2>1.HTML的发明者</h2>
+        <p> HTML的英文全称是 Hyper Text Marked Language，即超文本标记语言。</p>
+        <p>HTML是由Web的发明者 Tim Berners-Lee和同事zhi Daniel W. Connolly于1990年创立的一种标记语言。</p>
+    </section>
+    <section>
+        <h2>2.HTML起手应该写什么</h2>
+        <p>一般以!DOCTYPE html开头，正常情况下不更改默认配置</p>
+    </section>
+    <section>
+        <h2>3.常用的表章节的标签</h2>
+        <ul>
+            <li>h1~h6</li>
+            <p>表示字体大小，从1到6字体依次变小</p>
+            <li>section</li>
+            <p>section表示段落，可用来区分大段文字，一般来说会有包含一个标题。</p>
+            <li>article</li>
+            <p>article表示文章，内部通常内嵌多个section等标签</p>
+            <li>main</li>
+            <p>main通常指主要代码部分</p>
+            <li>aside</li>
+            <p>aside通常指次要代码部分</p>
+        </ul>
+        <h2>4.全局属性</h2>
+        <ol>
+            <li>class</li>
+            <p>给一个标签取个名字</p>
+            <li>hidden</li>
+            <p>让某一个标签消失，不显示在页面中</p>
+            <li>tabindex</li>
+            <p>让你的TAB键能够选择页面中的选项</p>
+            <dl>
+                <dt>tabindex特殊值</dt>
+                <dd>tabindex=0：表示最后选中</dd>
+                <dd>tabindex=-1：表示不要选中它</dd>
+            </dl>
+            <li>style</li>
+            <p>在style中可写CSS一样的内容（需用“”括起来），同时优先级比CSS高，比JS低</p>
+            <li>title</li>
+            <p>使你的鼠标悬浮在某标签上时，能够显示该标签全部内容。</p>
+            <p>通常与<code><pre>white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;</pre></code>三句代码同时使用</p>
+            <li>id</li>
+            <p>id 全局属性定义了一个全文档唯一的标识符 (ID)。它用于在链接（使用片段）、脚本和样式（通过 CSS）中辨识元素。</p>
+            <p><em>注意！</em>id的名字有诸多限制，不到万不得已不用id！</p>
+            <li>contenteditable</li>
+            <p>使你的任何元素可以被编辑。</p>
+        </ol>
+        <h2>5.常用的内容标签</h2>
+        <ul>
+            <li>a</li>
+            <p>表示超链接，href内写跳转的网址。</p>
+            <li>strong</li>
+            <p><strong>strong</strong>表示内容本身的重要性</p>
+            <li>em</li>
+            <p>em表示语气上的强调</p>
+            <li>code</li>
+            <p>code表示其中的字符以等长的形式表现，通常用于编写代码，英文等</p>
+            <li>pre</li>
+            <p>pre表示保留多个空格或回车等格式</p>
+            <hr>
+            <hr>
+        </ul>
+    </section>
+
+</body>
+
+</html>

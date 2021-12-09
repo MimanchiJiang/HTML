@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .canter {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p {
+            font-family: 宋体;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="canter">HTML常用标签</h1>
+    <h2>一、a标签的用法</h2>
+    <ol>
+        <li>href</li>
+        href中可以写网址（//www.baidu.com）<br>
+        如：<a href="//www.baidu.com">百度</a>
+        <hr>
+        路径（/a/b/c.html）
+        <hr>
+        <a href="javascript:alert('hello');">javascript伪协议用法</a>
+        <br>
+        <hr>
+        <a href="javascript:;">点击后什么都不做</a>
+        <hr>
+        <a href="#xxx">查看id为xxx的标签</a>
+        <hr>
+        <a href="mailto:2237268069@qq.com">给某人发邮箱</a>
+        <hr>
+        <a href="tel：15960578777">给某人打电话</a>
+        <hr>
+        <li>target</li>
+        _blank:在新窗口打开<br>
+        <a href="//www.baidu.com" target="_blank">百度</a>
+        <hr>
+        _top:在顶部浏览器窗口打开<br>
+        <hr>
+        _parent:在上一级浏览器窗口打开<br>
+        <hr>
+        _self:在当前窗口打开<br>
+        <a href="//www.baidu.com" target="_self">百度</a>
+        <hr>
+        target=xxx 在xxx窗口打开（多个网址共用一个窗口）
+    </ol>
+    <h2>二、table标签的用法</h2>
+    <ol>
+        <li><code>
+            <pre>
+        thead：头部   th:表头（table head）
+        tbody：身体   tr:表行（table rows）
+        tfoot：脚部   td:表元（table data）
+        </pre>
+    </code>
+        </li>
+        <li>
+            table_layout:auto 自动计算宽高<br>
+            table_layout:fixde 平均每一列一样宽<br>
+        </li>
+        <hr>
+        <li>
+            border_collapse:collapse;表格合并<br>
+            border_spacing:0px;距离为0
+        </li>
+    </ol>
+    <h2>三、img标签的用法</h2>
+    <ol>
+        <li>
+            src:路径<br>
+        </li>
+        <li>
+            alt:加载失败时的提示<br>
+        </li>
+        <hr>
+        <strong>heigh与width通常只写一个，同时写会使图片变形</strong>
+        <hr>
+        <li>
+            <strong>
+                制作响应式：手机端、PC端均可正常浏览<br>
+                <code><pre>
+                *{
+                    margin:0;
+                    padding:0;
+                    box-sizing:border-box;
+                }
+                img{
+                    max-width:100%
+                }
+                </pre>
+            </code>
+            </strong>
+        </li>
+    </ol>
+    <h2>四、form标签的用法</h2>
+    <ol>
+        <li>
+            autocomplete:提供推荐选项（标签内有name定义时生效）</li><br>
+        <hr>
+        <li>input的类型</li>
+        <br>
+        普通文本框：<input name="user" type="text" required>
+        <hr>
+        密码：<input type="password">
+        <hr>
+        颜色选择框：<input type="color">
+        <hr>
+        文件提交：<input type="file">
+        文件提交（可多选）：<input type="file" multiple>
+        <hr>
+        多选框：<br>
+        <input type="checkbox" name="checkbox">唱
+        <input type="checkbox" name="checkbox">跳
+        <input type="checkbox" name="checkbox">rap
+        <input type="checkbox" name="checkbox">篮球
+        <br>
+        定义同样的name，让他们在同一组里
+        <hr>
+        单选框：<br>
+        <input type="radio" name="gander">男
+        <input type="radio" name="gander">女
+        <br>
+        定义同样的name，实现单选
+        <hr>
+        看不见（用于给JS自动填写id之类的） <input type="hidden">
+        <hr>
+        多行文本框：<textarea style="resize: none;"> </textarea>
+        <hr>
+        选择框：<select>
+            <option value="">- 请选择 - </option>
+            <option value="1">星期一</option>
+            <option value="2">星期二</option>
+        </select>
+        <hr>
+        提交：<input type="submit"><br>
+        <hr>
+        重置：<input type="reset"><br>
+        <strong>button的submit与input的submit的区别：<br>
+            button里能写其他的（图片），input的value只能是纯文本。</strong>
+    </ol>
+</body>
+
+</html>
