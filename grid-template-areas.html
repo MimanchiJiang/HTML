@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-template-areas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            /*grid-gap: 10px;
+            每个元素之间的间隔*/
+            /*grid-column-gap: 10px;*/
+            /*垂直方向有空隙*/
+            /*grid-row-gap: 10px;*/
+            /*横向方向有空隙*/
+            border: 1px solid black;
+            display: inline-grid;
+            grid-template-rows: 240px repeat(4, 120px);
+            /*设定行宽度*/
+            grid-template-columns: 250px 250px;
+            /*设定纵宽度*/
+            grid-template-areas:
+                "big mid1"
+                "big mid2"
+                "sm1 mid2"
+                "sm2 mid3"
+                "sm3 mid3"
+        }
+
+        /*将areas里的元素与body里的元素一一对应*/
+        .container>div:first-child {
+            border: 1px solid red;
+            grid-area: big;
+        }
+
+        .container>div:nth-child(2) {
+            border: 1px solid red;
+            grid-area: sm1;
+        }
+
+        .container>div:nth-child(3) {
+            border: 1px solid red;
+            grid-area: sm2;
+        }
+
+        .container>div:nth-child(4) {
+            border: 1px solid red;
+            grid-area: sm3;
+        }
+
+        .container>div:nth-child(5) {
+            border: 1px solid red;
+            grid-area: mid1;
+        }
+
+        .container>div:nth-child(6) {
+            border: 1px solid red;
+            grid-area: mid2;
+        }
+
+        .container>div:nth-child(7) {
+            border: 1px solid red;
+            grid-area: mid3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image bigimage"></div>
+        <div class="image smallimage"></div>
+        <div class="image smallimage"></div>
+        <div class="image smallimage"></div>
+        <div class="image middleimage"></div>
+        <div class="image middleimage"></div>
+        <div class="image middleimage"></div>
+    </div>
+</body>
+
+</html>
