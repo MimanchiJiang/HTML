@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2022 by anonymous (http://js.jirengu.com/zuyorebexe/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>元素居中模板</title>
+  <style id="jsbin-css">
+    /* 让一个元素居中*/
+    #demo {
+      border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+
+    }
+
+
+    .warrper {
+      border: 1px solid black;
+      /* 与translateZ一起使用 */
+      perspective: 1000px;
+      position: relative;
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="warrper">
+    <div id="demo"></div>
+  </div>
+</body>
+
+</html>

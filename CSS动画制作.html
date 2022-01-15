@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS制作动画</title>
+  <style id="jsbin-css">
+    /* 让一个元素居中*/
+    #translate {
+      border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      top: 50%;
+      transition: all 1s;
+
+    }
+
+    .warrper {
+      /* 与translateZ一起使用 确定一个视点 */
+      perspective: 1000px;
+
+      height: 300px;
+      width: 500px;
+    }
+
+    #translate:hover {
+      transform: translateX(50px) translateY(50px);
+    }
+
+    /* ----------------------rotate(绕一点旋转)-------------- */
+    #rotate {
+      border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      top: 50%;
+      transition: all 1s;
+    }
+
+    #rotate:hover {
+      transform: rotate(45deg);
+      /*默认以Z轴旋转，也可以X，Y轴旋转 rotateX/Y */
+    }
+
+    /* ------------------rotate-nomal(绕中轴旋转)--------------------- */
+    #rotate-nomal {
+      border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      transition: all 1s;
+      top: 35%;
+      left: 40%;
+    }
+
+    #rotate-nomal:hover {
+      transform: rotate(45deg);
+      /*默认以Z轴旋转，也可以X，Y轴旋转 rotateX/Y */
+    }
+
+    /* -------------------skew--------------------- */
+    #skew {
+      border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      transition: all 1s;
+
+      position: absolute;
+      top: 35%;
+      left: 40%;
+
+    }
+
+    #skew:hover {
+      transform: skew(45deg);
+      /*X，Y*/
+    }
+
+
+    /* ------------------scale------------- */
+    #scale {
+      border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      transition: all 1s;
+      position: absolute;
+      left: 41%;
+      top: 40%;
+
+
+    }
+
+    #scale:hover {
+      transform: scale(1.2);
+      /*X，Y*/
+    }
+
+
+    .border {
+      position: relative;
+      height: 200px;
+      width: 500px;
+    }
+
+    .span {
+      font-size: larger;
+
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1>CSS制作动画</h1>
+  </center>
+  <h2>一、transform的四种变换方式</h2>
+  <div class="border">
+    <h3>
+      <center>transform-translate(位移)</center>
+    </h3>
+    <div id="translate"></div>
+  </div>
+
+  <div class="border">
+    <h3>
+      <center>transform-rotate(绕某一点旋转)</center>
+    </h3>
+    <div id="rotate"></div>
+  </div>
+
+  <div class="border">
+    <h3>
+      <center>transform-rotate(绕中轴旋转)</center>
+    </h3>
+    <div id="rotate-nomal"></div>
+  </div>
+
+  <div class="border">
+    <h3>
+      <center>transform-skew(倾斜)</center>
+    </h3>
+    <div id="skew"></div>
+  </div>
+
+  <div class="border">
+    <h3>
+      <center>transform-scale(缩放)</center>
+    </h3>
+    <div id="scale"></div>
+  </div>
+  <hr>
+  <h2>二、animation的格式</h2>
+  <span>animation：时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名</span>
+  <h3>声明关键帧</h3><code>@keyframes xxx{      <br>                       
+                                            0%{          }<br>
+                                            25%{          }<br>
+                                            100%{          }<br>
+
+}</code>
+  <br>
+  <div class="clearfix">
+    <div class="span">
+      <span>
+        animation的各个属性名 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">（mdn）</a><br>
+        animation-name：动画名<br>
+        animation-duration：多少s/多少ms 动画时长<br>
+        animation-timing-function 动画执行的节奏<br>
+        animation-delay 动画何时开始<br>
+        animation-iteration-count 动画运行次数<br>
+        animation-direction 动画是否反向播放<br>
+        animation-fill-mode 设置CSS动画在执行之前和之后如何将样式应用于其目标。<br>
+        animation-play-state 运行与暂停<br>
+        <a href="https://mimanchijiang.github.io/HTML/JS-animation.html">使用JS控制animation属性名例子</a></span>
+    </div>
+
+  </div>
+  <hr>
+  <span>跳动的心demo</span><br>
+  <a
+    href="https://mimanchijiang.github.io/HTML/transform-demo%E8%B7%B3%E5%8A%A8%E7%9A%84%E7%BA%A2%E5%BF%83.html">transform</a>
+  <br>
+  <a
+    href="https://mimanchijiang.github.io/HTML/animation-demo%E8%B7%B3%E5%8A%A8%E7%9A%84%E7%BA%A2%E5%BF%83.html">animation</a>
+  <center>
+    <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+  </center>
+</body>
+
+</html>
