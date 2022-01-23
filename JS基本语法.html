@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS基本语法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .content {
+
+            height: 1250px;
+
+        }
+
+        .content>aside {
+            float: left;
+            border: 1px solid white;
+            width: 35%;
+
+
+        }
+
+        .content>main {
+
+            float: left;
+            max-width: 808px;
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        pre {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .a {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <center>JS基本语法</center>
+    </h1>
+    <div class="clearfix content">
+        <aside></aside>
+        <main>
+            <h3>一、语句和表达式</h3>
+            <ul class="a">
+                <li>一般来说，表达式一般都有值，语句可能有可能没有</li><br>
+                <li>
+                    语句一般会改变环境（声明、赋值等）
+                </li><br>
+                <li>
+                    以上两句话并不绝对
+                </li><br>
+            </ul>
+
+            <hr>
+            <h3>二、标识符</h3>
+            <p> 第一个字符可以是Unicode字母或$或_或中文，但不能是<strong>数字</strong>
+            </p>
+            <br>
+            <p>后面的字符请随意</p>
+            <br>
+            <hr>
+            <h3>三、if else语句</h3>
+            <ul>
+                <li>if...else...
+                </li><br>
+                <li>
+                    switch
+                </li><br>
+                <li>A?B:C</li>
+                <li>
+                    <pre>
+A&&B => if(a){
+     b;
+        }</pre>
+                </li><br>
+                <li>fn&&fn()</li><br>
+                <li>
+                    <pre>
+A||B => if(!a){
+      b;
+         }</pre>
+                </li><br>
+                <li>
+                    <pre>
+a = a||100 =>if(a){
+       a = a;
+         }
+else{
+       a=100;(保底值)
+         }</pre>
+                </li>
+                </li>
+            </ul>
+            <br>
+            <hr>
+            <h3>四、while语句</h3>
+            <ul>
+                <li>while(表达式){语句}</li>
+                <li>判断表达式真假</li>
+                <li>当表达式为真，执行语句</li>
+                <li>当表达式为假，执行后面的语句</li>
+                <li>执行完，再次判断表达式真假</li>
+            </ul>
+
+            <br><br>
+            <hr>
+            <h3>五、for语句</h3>
+            <ul>
+                <li>
+                    for(语句1;表达式2;语句3){循环体}
+                </li><br>
+                <li>
+                    限制性语句1
+                </li><br>
+                <li>
+                    然后判断表达式2
+                </li><br>
+                <li>
+                    如果为真，执行循环体，然后执行语句3
+                </li><br>
+                <li>
+                    如果为假，直接退出循环，执行后面的语句
+                </li>
+            </ul>
+            <h3>六、break与continue</h3>
+            <ul>
+                <li>
+                    break：推出离他最近的一个循环
+                </li><br>
+                <li>
+                    continue：推出<strong>这一次</strong>循环
+                </li>
+            </ul>
+            <h3>七、lable</h3>
+            <p>标签，给block命名</p>
+        </main>
+    </div>
+    <center>
+        <hr>
+        <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+        <br><br>
+    </center>
+</body>
+
+</html>
