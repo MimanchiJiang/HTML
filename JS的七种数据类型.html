@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS的七种数据类型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .content {
+
+            height: 1600px;
+
+        }
+
+        .content>aside {
+            float: left;
+            border: 1px solid white;
+            width: 35%;
+
+
+        }
+
+        .content>main {
+
+            float: left;
+            max-width: 808px;
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        pre {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .a {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <center>JS的数据类型</center>
+    </h1>
+    <div class="clearfix content">
+        <aside></aside>
+        <main>
+            <h3>JS的七种数据类型</h3>
+            <ul>
+                <li>String</li>
+                <li>bool</li>
+                <li>number</li>
+                <li>symnol</li>
+                <li>null</li>
+                <li>undefined</li>
+                <li>object</li>
+            </ul>
+            <br>
+            <hr>
+            <br>
+            <h3>五个falsy值</h3>
+            <ul>
+                <li>''</li>
+                <li>Null</li>
+                <li>0</li>
+                <li>NaN</li>
+                <li>undefined</li>
+            </ul><br>
+            <hr><br>
+            <h3>类型转换</h3><br>
+            <h4>number --> String</h4>
+            <ol>
+                <li>String(n)</li><br>
+                <li>
+                    n+''或''+n
+                </li>
+            </ol><br>
+            <h4>String --> number</h4>
+            <ol>
+                <li>Number(n)</li><br>
+                <li>
+                    parseInt(n)/parseFloat(n)
+                </li>
+                <li>
+                    n-0
+                </li>
+            </ol><br>
+            <h4>X --> bool</h4>
+            <ol>
+                <li>Boolean(x)</li><br>
+                <li>
+                    !!x
+                </li>
+            </ol><br>
+            <h4>X --> String</h4>
+            <ol>
+                <li>String(x)</li><br>
+                <li>
+                    x.toString()
+                </li>
+            </ol><br>
+            <h3>JS对象</h3>
+            <br>
+            <h4>JS对象的两种写法</h4>
+            <ul>
+                <li>
+                    let obj = {'name' : 'xxx','number' : 18}
+                </li><br>
+                <li>
+                    let obj = new object({'name': 'xxx','number':18})
+                </li>
+            </ul><br>
+            <h4>删JS对象</h4>
+            <ul>
+                <li>delete obj.xxx --> 删除的是属性名</li><br>
+                <li>
+                    delete obj['name']
+                </li>
+            </ul><br>
+            <strong>
+                <pre>
+let a ='xxx'
+var obj = {[a]:111} --> 表示a是个变量
+                </pre>
+            </strong>
+            <h4>读JS对象</h4>
+            <ul>
+                <li>object.keys(obj)可以得到obj的所有key</li><br>
+                <li>object.values(obj)可以得到obj的所有values</li><br>
+                <li>object.entries(obj)可以得到obj的所有key和values</li><br>
+            </ul><br>
+            <h4>修改JS对象</h4>
+            <ul>
+                <li>批量赋值：Object.assign(obj,{p1:1,p2:2,p3:3})</li><br>
+                <li>
+                    修改共有属性：<ul>
+                        <li>
+                            obj.__proto__.xxx(不推荐使用)
+                        </li>
+                        <li>
+                            var person = Object.create(common)
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <h4>'name' in obj和obj.hasOwnProperty('name') 的区别</h4>
+            <p>'name' in obj 用来检查该属性是否在对象里，包括共有属性</p><br>
+            <p>obj.hasOwnProperty('name') 用来检查该属性是否在该对象独有的属性里</p>
+        </main>
+    </div>
+    <center>
+        <hr>
+        <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+        <br><br>
+    </center>
+</body>
+
+</html>
