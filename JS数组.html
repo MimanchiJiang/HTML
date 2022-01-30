@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS数组</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .content {
+
+            height: 1850px;
+
+        }
+
+        .content>aside {
+            float: left;
+            border: 1px solid white;
+            width: 35%;
+
+
+        }
+
+        .content>main {
+
+            float: left;
+            max-width: 808px;
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        pre {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .a {
+            list-style: none;
+        }
+
+        code,
+        span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <center>JS数组</center>
+    </h1>
+    <div class="clearfix content">
+        <aside></aside>
+        <main>
+            <span>JS里的数组是假的数组，数组内容可以包括数字，对象，字符串等</span><br>
+            <a href="#新建数组">变换数组</a><br>
+            <a href="#将字符串变换成数组">将字符串变换成数组</a><br>
+            <a href="#合并数组">合并数组</a><br>
+            <a href="#切割数组">切割数组</a><br>
+            <a href="#删除数组">删除数组</a><br>
+            <a href="#遍历数组">遍历数组</a><br>
+            <a href="#查找某项是否在数组里">查找某项是否在数组里</a><br>
+            <a href="#查找某项符合要求">查找某项符合要求</a><br>
+            <a href="#增加数组">增加数组</a><br>
+            <a href="#查找某项是否在数组里">查找某项是否在数组里</a><br>
+            <a href=将一个字符串倒转>将一个字符串倒转</a><br>
+            <a href="乱序--->顺序">乱序--->顺序</a><br>
+            <h3 id=变换数组>变换数组</h3>
+            <ul>
+                <li>
+                    <span>let arr=[1,2,3]</span>
+                </li>
+                <li>
+                    <span>let arr = new Array(1,2,3) </span>
+                </li>
+            </ul><br>
+            <h3 id="将字符串变换成数组">将字符串变换成数组：</h3>
+            <span>str.split(',')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//','表示用，分隔</span><br>
+            <br>
+            <hr>
+            <br>
+            <span>
+                <span>Array.from( ,length:)&nbsp;&nbsp;&nbsp;&nbsp;可以将伪数组变成数组</span><br>
+                需满足两个条件：
+                <ul>
+                    <li>拥有1，2，3，4下标</li>
+                    <li>
+                        有length属性
+                    </li>
+                </ul>
+            </span><br>
+            <h3 id="合并数组">合并数组</h3>
+            <span>arr1.concat(arr2)</span><br><br>
+
+            <h3 id="切割数组">切割数组</h3>
+            <span>arr1.slice(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//表示从下标2开始切</span>
+            <br><br>
+            <span>arr1.slice(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//表示从0开始切，即复制一个数组</span>
+            <br><br>
+            <h3 id="删除数组">删除数组</h3>
+            <span>delete arr[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//删除后数组长度不变</span><br>
+            <span>修改数组中的length元素会删除元素</span><br>
+            <span>删除的正确方式：
+                <ul>
+                    <li>arr.shift()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//删除数组的第一个</li><br>
+                    <li>arr.pop()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//删除数组的最后一个</li><br>
+                    <li>arr.splice(2,1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//在2的位置删除1个元素<br>
+                        arr.splice(2,1,'x','y')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;并在删除位置添加x，y
+                    </li>
+                </ul>
+            </span>
+            <br>
+            <h3 id="遍历数组">遍历数组</h3>
+            <span>
+                <ul>
+                    <li>for循环：for(let i=0;i<<strong>arr.length</strong>;i++) </li>
+                    <li>
+                        arr.forEach(function(item,index)&nbsp;{
+                        console.log(`${index}:${item}`)
+                        })
+                    </li>
+                </ul>
+                差别：for循环可以中断，是个块级作用域；forEach不可以中断，是个函数作用域。
+            </span>
+            <br><br>
+            <h3 id="查找某项是否在数组里">
+                查找某项是否在数组里
+            </h3>
+            <span>arr.indexOf(13)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回-1表示没有</span><br><br>
+            <h3 id="查找某项符合要求">查找某项符合要求</h3>
+            <span>arr.find(function(x)&nbsp;{return&nbsp;x%5===0})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//某项是否被5整除，只会返回第一个数<br>
+                arr.findIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回对应元素下标</span><br><br>
+            <h3 id="增加数组">增加数组</h3>
+            <ul>
+                <li>
+
+                    arr.push(添加的数值)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//在尾部添加
+                </li>
+                <li>
+                    arr.unshift(添加的数值)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//在头部添加
+                </li>
+                <li>
+                    arr.splice(incex,0,'x')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//在inde处添加
+                </li>
+            </ul>
+            <br>
+            <h3 id="将一个字符串倒转">将一个字符串倒转</h3>
+            <span>str.split('').reverse().join('')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//先变成数组，再反转，再合并成字符串</span>
+            <br><br>
+            <h3 id="乱序--->顺序">乱序--->顺序</h3>
+            <span>arr.sort()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//默认从小到大</span><br>
+            从大到小：
+            <pre>
+arr.sort(function(a,b){
+    if(a>b){return -1}
+    else if(a=b){return 0}
+    else(a<<p>b</p>){return 1}
+})
+            </pre>
+            <h3 id="变换数组">变换数组</h3>
+            <span>数组变换可以让一个数组根据某种自定义规则进行转换</span><br>
+            <ul>
+                <li>map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//n变n <br>
+                    arr.map(item => item*item)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//数组内的数全部平方
+                </li><br>
+                <li>
+                    filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//n变少<br>
+                    arr.filter(item => item%2===0?true:false)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//保留偶数
+                </li><br>
+                <li>
+                    reduce&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//n变1 <br>
+                    arr.reduce((sum,item)=>(return{sum+item},0))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//开始的值为0
+                </li>
+            </ul>
+            <a href="#">回到顶部</a>
+        </main>
+    </div>
+    <center>
+        <hr>
+        <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+        <br><br>
+    </center>
+</body>
+
+</html>
