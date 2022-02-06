@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS函数</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .content {
+
+            height: 1850px;
+
+        }
+
+        .content>aside {
+            float: left;
+            border: 1px solid white;
+            width: 35%;
+
+
+        }
+
+        .content>main {
+
+            float: left;
+            max-width: 808px;
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        pre {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .a {
+            list-style: none;
+        }
+
+        code,
+        span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <center>JS函数</center>
+    </h1>
+    <div class="clearfix content">
+        <aside></aside>
+        <main>
+            <h3>
+                函数是一种对象
+            </h3><br>
+            <h3>setTimeout</h3>
+            <pre>
+let i = 0
+for(i = 0; i<6; i++){
+  setTimeout(()=>{
+    console.log(i)
+  },0)
+}
+            </pre>
+            打印出的是六个六，而不是12345. <br>
+            原因是：setTimeout的意思是稍晚一些执行命令，所以等到for循环结束后才会执行console命令。
+            <br>
+            <hr>
+            <br>
+            若需打印出12345，则可将let放入for循环中。
+            <br>如：
+            <pre>
+
+for(let i = 0; i<6; i++){
+  setTimeout(()=>{
+    console.log(i)
+  },0)
+}
+            </pre>
+            这是JS作者对新手逻辑思维的妥协。
+        </main>
+    </div>
+    <center>
+        <hr>
+        <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+        <br><br>
+    </center>
+</body>
+
+</html>
