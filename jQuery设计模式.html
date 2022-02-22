@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery设计模式</title>
+    <style>
+        .body {
+            background: red;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .content {
+            background-color: beige;
+            height: 2300px;
+
+        }
+
+        .content>aside {
+            float: left;
+            border: 1px solid beige;
+            width: 20%;
+            background-color: beige;
+
+
+
+        }
+
+        .content>main {
+
+            float: left;
+            max-width: 808px;
+
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        pre {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        code,
+        span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="background-color: beige;">
+        <center>jQuery设计模式</center>
+    </h1>
+    <div class="clearfix content">
+        <aside></aside>
+        <main>
+            <strong>【目录】</strong>
+            <ul>
+                <li><a href="#选择">选择网页元素</a></li><br>
+                <li><a href="#改变">改变结果集</a></li><br>
+                <li><a href="#链式操作">链式操作</a></li><br>
+                <li><a href="#取值和赋值">元素的操作：取值和赋值</a></li><br>
+                <li><a href="#移动">元素的操作：移动</a></li><br>
+                <li><a href="#复制">元素的操作：复制、删除和创建</a></li><br>
+            </ul>
+            <hr>
+            <hr>
+            <strong>【正文】</strong>
+            <br>
+            <h3 id="选择">选择网页元素</h3>
+            <span>想要得到网页中的一个元素，通常可以使用以下方法：</span>
+            <blockquote>
+                <h4>css选择器</h4>
+                <p>$(document) //选择整个文档对象</p>
+                <p>$('#111') //选择ID为111的网页元素</p>
+                <p>$('div.myclass') //选择class为mayclass的div元素</p>
+                <p>$('input[name=first]') /选择name属性等于first的input元素</p>
+                <br>
+                <h4>jQuery特有的方法</h4>
+                <p>$('a:irst') //选择网页中的第一个a元素</p>
+                <p>$('tr:odd') //选择表格的奇数行</p>
+                <p>$('#myform:input') //选择id为myform的表单中的input元素</p>
+                <p>$('div:visible') //选择可见的div元素</p>
+                <p>$('div:gt(2)') //选择所有的div元素，除了前三个</p>
+                <p>$('div:animated') //选择当前处于动画状态的div元素</p>
+            </blockquote>
+            <br>
+            <hr>
+            <h3 id="改变">改变结果集</h3>
+            <span>可以对选择的结果集进行筛选，缩小选择范围</span>
+            <blockquote>
+                <p>$('div').has('p'); //选择包含p元素的div元素</p>
+                <p>$('div').not('.myClass'); //选择class不等于myClass的div元素</p>
+                <p>$('div').filter('.myClass'); //选择class等于myClass的元素</p>
+                <p>$('div').first(); //选择第一个div元素</p>
+                <p>$('div').eq(5); //选择第六个元素</p>
+            </blockquote>
+
+            <span>同时，Jquery也提供了从结果集出发，查找结果集周围元素的操作</span>
+            <blockquote>
+                <p>
+                    $('div').next('p'); //选择div元素后面的第一个p元素
+                </p>
+                <p>
+                    $('div').parent(); //选择div元素的父元素
+                </p>
+                <p>
+                    $('div')closest('form'); //选择离div最近的那个form父元素
+                </p>
+                <p>
+                    $('div').children(); //选择div的所有子元素
+                </p>
+                <p>
+                    $('div').siblings(); //选择div的同级元素。选择后会包含本身，所以需要设置循环排除自身。点击查看<a href="">详情</a>
+                </p>
+            </blockquote>
+            <br>
+            <hr>
+            <h3 id="链式操作">
+                链式操作
+            </h3>
+            <span>
+                对一个元素的一系列操作，jQuery支持用链式操作将他们连接起来
+            </span>
+            <blockquote>
+                <p>
+                    $('div').find('h3').eq(2).html('Hello');
+                </p>
+                <br>
+                <span>分解来看，就像下面这样</span><br>
+                <blockquote>
+
+                    <p> $('div') //找到该div</p>
+                    <p> .find('h3') //选择其中的h3元素</p>
+                    <p> .eq(2) //选择第三个h3元素</p>
+                    <p> .html('hello') //将他的内容改为hello</p>
+
+                </blockquote>
+                <br>
+                <span>同时，jQuery还提供后退操作————end()，用来返回上一步操作</span><br>
+                <blockquote>
+                    <p> $('div') //找到该div</p>
+                    <p> .find('h3') //选择其中的h3元素</p>
+                    <p> .eq(2) //选择第三个h3元素</p>
+                    <p> .html('hello') //将他的内容改为hello</p>
+                    <p>
+                        .end() //退回到第二步，即选中所有的h3元素
+                    </p>
+                    <p>
+                        .eq(0) //选中第一个h3元素
+                    </p>
+                    <p>
+                        ...
+                    </p>
+                </blockquote>
+            </blockquote>
+            <br>
+            <hr>
+            <h3 id="取值和赋值">元素的操作：取值和赋值</h3>
+            <span> jQuery能够获取网页中元素的值，或者设置每个元素的值</span><br>
+            <blockquote>
+                <p>
+                    $('h1').html(); //没有参数，则表示取出h1的值
+                </p>
+                <p>
+                    $('h1').html('hello'); //html()有参数“hello”，表示对h1进行赋值
+                </p>
+                <br>
+                <p>
+                    常见的取值和赋值函数如下：
+                </p><br>
+                <p>
+                    .html() //取出或设置html内容
+                </p>
+                <p>
+                    .text() //取出或这是text内容
+                </p>
+                <p>
+                    .attr() //取出或设置某个属性的值
+                </p>
+                <p>
+                    .width/height() //取出或设置某个元素的宽度/高度
+                </p>
+                <p>
+                    .val(); //取出某个表单元素的值
+                </p>
+                <br>
+                <p>
+                    <strong>
+                        总结：有参数的是赋值，没有参数的是取值
+                    </strong>
+                </p>
+                <p>
+                    需要注意的是，如果结果集包含多个元素，那么赋值的时候，将对其中所有的元素赋值；取值的时候，则只是取出第一个元素的值（.text()除外，他取出所有元素的text内容）
+                </p>
+            </blockquote>
+            <br>
+            <hr>
+            <h3 id="移动">
+                元素的操作：移动
+            </h3>
+            <span>
+                关于元素的移动，jQuery提供了两种方案。一种是直接移动该元素，一种是移动其他元素，使该元素达到我们想要的位置。
+            </span>
+            <blockquote>
+                <p>
+                    假如我们需要将一个div移动到一个p元素的后面，若使用第一种元素：
+                </p>
+                <p>
+                    $('div').insertAfter($('p'));
+                </p>
+                <p>
+                    第二种方法：
+                </p>
+                <p>
+                    $('p').after($('div')); </p>
+                </p>
+
+                <br>
+                <p>
+                    两种方法的效果使一样的，不过是操作视角不同，这样的操作方法有四对：
+                </p>
+                <p>
+                    .insertAfter() 和 .after() //在现存元素的外部，在后面插入元素
+                </p>
+                <p>
+                    .insertBefore() 和 .before() //在现存元素的外部，在前面插入元素
+                </p>
+                <p>
+                    .appendTo() 和 .append() //在现存元素的内部，在后面插入元素
+                </p>
+                <p>
+                    .prependTo() 和 .prepend() //在现存元素的内部，在前面插入元素
+                </p>
+            </blockquote>
+            <br>
+            <hr>
+            <h3 id="复制">元素的操作：复制、删除和创建</h3>
+            <span>
+                除去上述几种方法外，jQuery还提供了几种操作元素的方法：
+            </span>
+            <blockquote>
+                <p>复制元素使用 .clone()</p>
+                <p>
+                    删除元素使用 .remove()或.detach()。两者的区别在于，前者不保留被删除元素的事件，后者保留，有利于重新插入文档时使用。
+                </p>
+                <p>
+                    清空元素的内容 .empty()
+                </p>
+                <br>
+                <p>
+                    创建元素，只要把新元素直接传入jQuery的构造函数就可以了。
+                </p>
+                <blockquote>
+                    <p>
+                        $('《p》Hello《/p》');
+                    </p>
+                    <p>
+                        $('《li class="new"》new list item《/li》');
+                    </p>
+                    <p>
+                        $('ul').append('《li》list item《/li》');
+                    </p>
+                </blockquote>
+            </blockquote>
+        </main>
+
+    </div>
+    <center>
+        <hr>
+        <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+        <br><br>
+    </center>
+</body>
+
+</html>
