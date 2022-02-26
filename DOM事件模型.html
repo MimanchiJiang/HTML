@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件模型</title>
+    <style>
+        .body {
+            background: red;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .content {
+            background-color: beige;
+            height: 1000px;
+
+        }
+
+        .content>aside {
+            float: left;
+            border: 1px solid beige;
+            width: 20%;
+            background-color: beige;
+
+
+
+        }
+
+        .content>main {
+
+            float: left;
+            max-width: 808px;
+
+
+        }
+
+        p {
+            text-indent: 2em;
+        }
+
+        pre {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        code,
+        span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="background-color: beige;">
+        <center>DOM事件模型</center>
+    </h1>
+    <div class="clearfix content">
+        <aside></aside>
+        <main>
+            <span>
+                在DOM事件模型中，当你设置了一个点击事件后，监听顺序分为<strong>事件冒泡</strong>与<strong>事件捕获</strong>
+                <br>
+                <br>
+                由内到外的是<strong>事件冒泡</strong>（很好理解吧，像泡泡一样往外冒）<br>
+                由外到内的是<strong>事件捕获</strong>（一层一层抽丝剥茧的去抓捕---强行理解，也可死记）
+                <br><br>
+                后期，和事佬W3C出了一个API：baba.addEventListener('click',fn,<strong>bool</strong>)<br>
+                看到那个bool没有，如果不写，或者为falsy，则走的是冒泡。<br>
+                如果写，则走捕获流程。
+            </span>
+            <br>
+            <br>
+            <span>
+                捕获可以阻止吗？ 可以的<br>
+                e.stopPropagation() 让捕获无法阻止
+            </span><br>
+            <span>
+                那么冒泡可以阻止吗？？ 不能直接组织冒泡，但是可以通过一些曲折的方法来组织<br>
+                Bubbles的意思是该事件是否冒泡 ----- 默认冒泡<br>
+                Cancelable ----- 是否阻止默认事件<br>
+                所以，一来二去，先默认冒泡，在阻止默认事件，就可以了<br>
+            </span>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <span>
+                <h3>一些补充知识</h3>
+                <code>e.target </code>--- 用户操作的元素<br>
+                <code>e.currentTarget</code> --- 程序员监听的元素（this代表的是它）
+                <br>
+                eg: div>span{文字} ----用户点击文字
+                <br>
+                e.target 就是 span <br>
+                e.currentTarget 就是 div <br>
+            </span><br>
+
+            <br>
+            <h3>如何阻止页面滚动</h3>
+            <span>
+                可以阻止鼠标滚轮（wheel）和触屏（touchstart）的默认动作（e.prentDefault）
+                <br>同时取消旁边的滚动条（::-webkit-scrollbar{ width:0 } --- CSS）
+            </span>
+            <br>
+            <br>
+            <span>
+                最后来讲一下<strong>事件委托</strong>（省内存，可监听动态元素）<br>
+                事件委托就是交代一个元素来帮你监听一个事件。<br>
+                比如你要监听一百个元素，不用事件委托，你就要设置一百个事件监听。<br>
+                如果你用事件委托，只需要设置一个监听器就可以了<br>
+                这样你就省去了99个监听器的内存
+            </span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <span>
+                <strong>啾咪</strong>
+            </span>
+        </main>
+
+    </div>
+    <center>
+        <hr>
+        <footer>&copy;此博客最终解释权归Mi Manchi所有</footer>
+        <br><br>
+    </center>
+</body>
+
+</html>
